@@ -14,5 +14,6 @@ spec:
     spec: 
       containers:
         - name: auth
-        
+          image: dominicwassef/auth
+
     
