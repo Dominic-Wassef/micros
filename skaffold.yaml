@@ -7,8 +7,10 @@ deploy:
 build:
   local:
     push: false
+  googleCloudBuild:
+    projectId: micros-dev
   artifacts:
-    - image: dominicwassef/auth
+    - image: us.gcr.io/micros-dev/auth
       context: auth
       docker:
         dockerfile: Dockerfile
