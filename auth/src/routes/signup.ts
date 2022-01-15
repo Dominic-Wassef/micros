@@ -3,7 +3,11 @@ import express from 'express';
 const router = express.Router();
 
 router.post('/api/users/signup', (req, res) => {
-    res.send('Hi There!');
+    const { email, password } = req.body;
+
+    if (!email || typeof email !== 'string' ) {
+        res.status(400).send('Provide a valid email');
+    }
 });
 
 export { router as signupRouter }; 
