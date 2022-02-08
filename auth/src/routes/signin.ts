@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
+import { Jwt } from 'jsonwebtoken';
 
+import { Password } from '../services/password';
 import { User } from '../models/user'; 
 import { validateRequest } from '../middlewares/validate-request';
 import { BadRequestError } from '../errors/bad-request-error';
@@ -25,6 +27,25 @@ router.post('/api/users/signin',
         if (!existingUser) {
             throw new BadRequestError('Invalid credentials');
         }
+
+        const passwordsMatch = await Password.compare(
+            existingUser.password, 
+            password
+        );
+        if (!passwordsMatch) {
+            throw new BadRequestError('Invalid credentials');
+        }
+        const userJwt = jwt.sign({
+        id: existingUser.id,
+        email: existingUser.email
+        }, 
+        process.env.JWT_KEY! 
+        );
+        req.session = {
+        jwt: userJwt
+        };
+
+        res.status(200).send(existingUser);
     }
 );
 
