@@ -39,7 +39,9 @@ async (req: Request, res: Response) => {
     const userJwt = jwt.sign({
         id: user.id,
         email: user.email
-    }, 'asdf');
+    }, 
+    'DFH39B39GNH39GN68FL'    
+);
     
     // Store it on sesson object -DW
     req.session = {
