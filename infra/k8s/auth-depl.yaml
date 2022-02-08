@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: dominicwassef/auth
+          image: us.gcr.io/micros-dev/auth
           env:
             - name: JWT_KEY
               valueFrom:
