@@ -3,6 +3,7 @@ import { body } from 'express-validator';
 
 import { User } from '../models/user'; 
 import { validateRequest } from '../middlewares/validate-request';
+import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.post('/api/users/signin',
 
         const existingUser = await User.findOne({ email });
         if (!existingUser) {
-            
+            throw new BadRequestError('Invalid credentials');
         }
     }
 );
