@@ -19,7 +19,7 @@ router.post('/api/users/signin',
         const errors = validationResult(req)
 
         if (!errors.isEmpty()) {
-
+            throw new RequestValidationError(errors.array());
         }
     }
 );
