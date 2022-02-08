@@ -40,7 +40,7 @@ async (req: Request, res: Response) => {
         id: user.id,
         email: user.email
     }, 
-    'DFH39B39GNH39GN68FL'    
+    process.env.JWT_KEY! 
 );
     
     // Store it on sesson object -DW
