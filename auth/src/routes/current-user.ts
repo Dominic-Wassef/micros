@@ -13,6 +13,7 @@ router.get('/api/users/currentuser', (req, res) => {
         req.session.jwt, 
         process.env.JWT_KEY!
     );
+    res.send({ currentUser: payload });
     } catch (err) {
         res.send({ currentUser: null });
     }
