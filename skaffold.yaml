@@ -5,10 +5,10 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-  googleCloudBuild:
-    projectId: micros-dev
+  local:
+    push: false
   artifacts:
-    - image: us.gcr.io/micros-dev/auth
+    - image: dominicwassef/auth
       context: auth
       docker:
         dockerfile: Dockerfile
