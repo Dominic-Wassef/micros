@@ -1,7 +1,0 @@
-{
-    "name": "auth",
-    "jest": {
-      "verbose": true,
-      "testTimeout": 50000
-    }
-  }
