@@ -2,6 +2,7 @@ import request from 'supertest';
 import { app } from '../../app';
 
 it('returns a 201 on successful signup', async () => {
+    jest.setTimeout(50000);
     return request(app)
         .post('/api/users/signup')
         .send({
@@ -12,6 +13,7 @@ it('returns a 201 on successful signup', async () => {
 });
 
 it('returns a 400 with an invalid email', async () => {
+    jest.setTimeout(50000);
     return request(app)
         .post('/api/users/signup')
         .send({
@@ -22,6 +24,7 @@ it('returns a 400 with an invalid email', async () => {
 });
 
 it('returns a 400 with an invalid password', async () => {
+    jest.setTimeout(50000);
     return request(app)
         .post('/api/users/signup')
         .send({
@@ -32,6 +35,7 @@ it('returns a 400 with an invalid password', async () => {
 });
 
 it('returns a 400 with an missing email and password', async () => {
+    jest.setTimeout(50000);
     await request(app)
     .post('/api/users/signup')
     .send({
@@ -48,6 +52,7 @@ it('returns a 400 with an missing email and password', async () => {
 });
 
 it('disallows duplicate emails', async () => {
+    jest.setTimeout(50000);
     await request(app)
     .post('/api/users/signup')
     .send({
@@ -63,4 +68,17 @@ it('disallows duplicate emails', async () => {
         password: 'password'
     })
     .expect(400);
+});
+
+it('sets a cookie after successful signup', async () => {
+    jest.setTimeout(50000);
+    const response = await request(app)
+    .post('/api/users/signup')
+    .send({
+        email: 'test@test.com',
+        password: 'password'
+    })
+    .expect(201);
+
+    expect(response.get('Set-Cookie')).toBeDefined();
 });
