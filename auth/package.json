@@ -8,9 +8,6 @@
     "test": "jest --watchAll --no-cache"
   },
   "jest": {
-    "name": "auth",
-    "verbose": true,
-    "testTimeout": 50000,
     "preset": "ts-jest",
     "testEnvironment": "node",
     "setupFilesAfterEnv": [
