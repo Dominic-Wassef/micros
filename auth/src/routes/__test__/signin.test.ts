@@ -4,7 +4,6 @@ import { app } from '../../app';
 jest.useRealTimers();
 
 it('fails when a email that does not exist is supplied', async () => {
-    jest.setTimeout(60000);
     await request(app)
     .post('/api/users/signin')
     .send({
@@ -15,7 +14,6 @@ it('fails when a email that does not exist is supplied', async () => {
 });
 
 it('fails when an incorrect password is supplied', async () => {
-    jest.setTimeout(60000);
     await request(app)
     .post('/api/users/signup')
     .send({
@@ -34,7 +32,6 @@ it('fails when an incorrect password is supplied', async () => {
 });
 
 it('responds with a cookie when given valid credentials', async () => {
-    jest.setTimeout(60000);
     await request(app)
     .post('/api/users/signup')
     .send({
