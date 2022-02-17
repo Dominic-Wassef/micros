@@ -4,7 +4,6 @@ import { app } from '../../app';
 jest.useRealTimers();
 
 it('returns a 201 on successful signup', async () => {
-    jest.setTimeout(60000);
     return request(app)
     .post('/api/users/signup')
     .send({
@@ -15,7 +14,6 @@ it('returns a 201 on successful signup', async () => {
 });
 
 it('returns a 400 with an invalid email', async () => {
-    jest.setTimeout(60000);
     return request(app)
     .post('/api/users/signup')
     .send({
@@ -26,7 +24,6 @@ it('returns a 400 with an invalid email', async () => {
 });
 
 it('returns a 400 with an invalid password', async () => {
-    jest.setTimeout(60000);
     return request(app)
     .post('/api/users/signup')
     .send({
@@ -37,7 +34,6 @@ it('returns a 400 with an invalid password', async () => {
 });
 
 it('returns a 400 with missing email and password', async () => {
-    jest.setTimeout(60000);
     await request(app)
     .post('/api/users/signup')
     .send({
@@ -54,7 +50,6 @@ it('returns a 400 with missing email and password', async () => {
 });
 
 it('disallows duplicate emails', async () => {
-    jest.setTimeout(60000);
     await request(app)
     .post('/api/users/signup')
     .send({
@@ -73,7 +68,6 @@ it('disallows duplicate emails', async () => {
 });
 
 it('sets a cookie after successful signup', async () => {
-    jest.setTimeout(60000);
     const response = await request(app)
     .post('/api/users/signup')
     .send({
