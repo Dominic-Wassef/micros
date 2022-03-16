@@ -8,6 +8,8 @@ declare global {
   var signin: () => string[];
 }
 
+jest.mock('../nats-wrapper');
+
 let mongo: any;
 beforeAll(async () => {
     jest.useFakeTimers('legacy')
@@ -23,6 +25,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
+    jest.clearAllMocks();
     jest.useFakeTimers('legacy')
     const collections = await mongoose.connection.db.collections();
 
