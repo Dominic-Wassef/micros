@@ -8,4 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
+      # Login to DockerHub
+      - name: Docker Login
+        uses: docker/login-action@v1.8.0
+        with:
+          username: ${{secrets.dominicwassef}}
+          password: ${{secrets.Cinimod0123}}
+          logout: true
+
       - run: cd auth && npm install && npm run test:ci
