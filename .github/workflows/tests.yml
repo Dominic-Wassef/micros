@@ -15,5 +15,4 @@ jobs:
           username: ${{secrets.dominicwassef}}
           password: ${{secrets.Cinimod0123}}
           logout: true
-
       - run: cd auth && npm install && npm run test:ci
