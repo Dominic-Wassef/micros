@@ -9,7 +9,7 @@ build:
   googleCloudBuild:
     projectId: micros-dev
   artifacts:
-    - image: us.gcr.io/micros-dev/auth
+    - image: dominicwassef/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -17,7 +17,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/micros-dev/client
+    - image: dominicwassef/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -25,7 +25,7 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
-    - image: us.gcr.io/micros-dev/tickets
+    - image: dominicwassef/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -33,7 +33,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/micros-dev/orders
+    - image: dominicwassef/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -41,7 +41,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/micros-dev/expiration
+    - image: dominicwassef/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -49,7 +49,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/micros-dev/payments
+    - image: dominicwassef/payments
       context: payments
       docker:
         dockerfile: Dockerfile
