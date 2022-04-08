@@ -6,8 +6,8 @@ deploy:
       - ./infra/k8s/*
       - ./infra/k8s-dev/*
 build:
-  googleCloudBuild:
-    projectId: micros-dev
+  local:
+    push: false
   artifacts:
     - image: dominicwassef/auth
       context: auth
