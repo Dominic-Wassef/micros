@@ -6,10 +6,10 @@ deploy:
       - ./infra/k8s/*
       - ./infra/k8s-dev/*
 build:
-  local:
-    push: false
+  googleCloudBuild:
+    projectId: aviroute-dev
   artifacts:
-    - image: dominicwassef/auth
+    - image: us.gcr.io/aviroute-dev/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -17,7 +17,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: dominicwassef/ticketing-client
+    - image: us.gcr.io/aviroute-dev/ticketing-client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -25,7 +25,7 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: dominicwassef/tickets
+    - image: us.gcr.io/aviroute-dev/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -33,7 +33,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: dominicwassef/orders
+    - image: us.gcr.io/aviroute-dev/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -41,7 +41,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: dominicwassef/expiration
+    - image: us.gcr.io/aviroute-dev/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -49,7 +49,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: dominicwassef/payments
+    - image: us.gcr.io/aviroute-dev/payments
       context: payments
       docker:
         dockerfile: Dockerfile
