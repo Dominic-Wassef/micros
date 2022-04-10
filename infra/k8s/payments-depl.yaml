@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: dominicwassef/payments
+          image: us.gcr.io/aviroute-dev/payments
           env:
             - name: NATS_CLIENT_ID
               valueFrom: 
