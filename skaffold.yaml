@@ -17,7 +17,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/aviroute-dev/ticketing-client
+    - image: us.gcr.io/aviroute-dev/client
       context: client
       docker:
         dockerfile: Dockerfile
