@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: us.gcr.io/aviroute-dev/orders
+          image: dominicwassef/orders
           env:
             - name: NATS_CLIENT_ID
               valueFrom: 
