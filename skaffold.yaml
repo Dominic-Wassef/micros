@@ -6,54 +6,54 @@ deploy:
       - ./infra/k8s/*
       - ./infra/k8s-dev/*
 build:
-  googleCloudBuild:
-    projectId: aviroute-dev
+  local:
+    push: false
   artifacts:
-    - image: us.gcr.io/aviroute-dev/auth
+    - image: dominicwassef/auth
       context: auth
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/aviroute-dev/client
+    - image: dominicwassef/client
       context: client
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '**/*.js'
+          - src: "**/*.js"
             dest: .
-    - image: us.gcr.io/aviroute-dev/tickets
+    - image: dominicwassef/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/aviroute-dev/orders
+    - image: dominicwassef/orders
       context: orders
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/aviroute-dev/expiration
+    - image: dominicwassef/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: "src/**/*.ts"
             dest: .
-    - image: us.gcr.io/aviroute-dev/payments
+    - image: dominicwassef/payments
       context: payments
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
+          - src: "src/**/*.ts"
             dest: .
