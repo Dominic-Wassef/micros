@@ -5,7 +5,7 @@ export default ({ req }) => {
         // We are on the server
 
         return axios.create({
-            baseURL: 'aviroute.app',
+            baseURL: 'http://www.aviroute.app',
             headers: req.headers
         });
     } else {
