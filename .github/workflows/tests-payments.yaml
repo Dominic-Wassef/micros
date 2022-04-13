@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd payments && npm install
-      # npm run test:ci in local environment due to GCR kubectl
+      # npm run test:ci in local environment due to doctl
