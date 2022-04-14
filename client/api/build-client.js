@@ -5,8 +5,7 @@ export default ({ req }) => {
         // We are on the server
 
         return axios.create({
-            // baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
-            baseURL: 'http://www.aviroute.app',
+            baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
             headers: req.headers
         });
     } else {
@@ -15,4 +14,4 @@ export default ({ req }) => {
             baseURL: '/'
         });
     }
-} 
+}
